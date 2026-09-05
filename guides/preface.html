@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>前言 · 動物王國語音導覽</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tour.css">
+  <script src="../gate.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <nav aria-label="導覽">
+        <ul class="tabs-nav">
+          <li><a href="../index.html">首頁</a></li>
+          <li><a href="../index.html#atlas">清單 <span class="badge">26</span></a></li>
+          <li><a href="preface.html" aria-current="page">導覽</a></li>
+        </ul>
+      </nav>
+      <div class="tools">
+        <button class="icon-btn" id="typeSize" type="button" aria-label="調整字級">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M4 18V8h8M8 8v10M14 18v-6h6M17 12v6"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" aria-label="語言：繁體中文" disabled>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="cover-wrap">
+      <img class="cover" src="media/preface-cover.jpg?v=3" width="1024" height="1024" alt="多種動物齊聚的正方形生態場景：貓熊、大猩猩、大象、獅子、長頸鹿、駱駝、北極熊與企鵝">
+    </div>
+
+    <div class="meta">
+      <p class="num">#001</p>
+      <h1 class="title">前言</h1>
+    </div>
+
+    <section class="player" aria-label="語音播放器">
+      <audio id="guideAudio" src="media/preface-sal.mp3" preload="metadata"></audio>
+      <div class="rate-row">
+        <button class="rate" id="rateBtn" type="button" aria-label="播放速度">1x</button>
+      </div>
+      <div class="scrub">
+        <span class="time" id="tCur">0:00</span>
+        <input id="seek" type="range" min="0" max="0" value="0" aria-label="播放進度">
+        <span class="time" id="tLeft">-0:00</span>
+      </div>
+      <div class="controls">
+        <button class="ctrl" type="button" disabled aria-label="上一則">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 12l10-7v14L6 12z"/></svg>
+        </button>
+        <button class="ctrl skip15" id="back15" type="button" aria-label="倒轉十五秒">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <path d="M7.2 8.2 4.8 10.2 7.2 12.2"/>
+            <path d="M5.4 10.2h8.1a5 5 0 1 1-1.2 7.4"/>
+          </svg>
+          <b>15</b>
+        </button>
+        <button class="play" id="playBtn" type="button" aria-label="播放">
+          <svg id="playIcon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 6.2v11.6L19 12 9 6.2z"/></svg>
+        </button>
+        <button class="ctrl skip15" id="fwd15" type="button" aria-label="快轉十五秒">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <path d="M16.8 8.2 19.2 10.2 16.8 12.2"/>
+            <path d="M18.6 10.2H10.5a5 5 0 1 0 1.2 7.4"/>
+          </svg>
+          <b>15</b>
+        </button>
+        <a class="ctrl" href="desert.html" aria-label="下一則：沙漠生態分區導覽">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 12L8 5v14l10-7z"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <div class="content-tabs" role="tablist" aria-label="內容">
+      <button type="button" role="tab" data-tab="intro" aria-selected="false" aria-controls="panel-intro">介紹</button>
+      <button type="button" role="tab" data-tab="script" aria-selected="true" aria-controls="panel-script">逐字稿</button>
+      <span class="tab-rule" data-tab="script" aria-hidden="true"><i></i></span>
+    </div>
+
+    <article class="panel" id="panel-intro" hidden>
+      <p>這是《動物王國大探險展》語音導覽的入口。六大展區為森林、沙漠、海洋、草原、極地與史前生命。</p>
+      <p>上方可播放前言導覽語音。逐字稿與語音內容相同。</p>
+    </article>
+
+    <article class="panel" id="panel-script">
+      <p>這是一場橫跨億萬年地球生態的旅程，時間從現代的世界，回溯到恐龍統治的洪荒，從森林、沙漠、海洋、草原、極地到史前生命一共六大展區，包含了所有陸海空生命的繁衍軌跡，結合真實動物標本與沈浸式光影體驗，還原不同的生態場景，邀請觀展者一同體驗，走進地球不同的美麗角落，一次感受生命的多元樣貌。</p>
+      <p>讓我們一起進入《動物王國大探險展》，開始與動物間的奇幻旅程。</p>
+    </article>
+  </div>
+  <script src="tour-player.js"></script>
+</body>
+</html>

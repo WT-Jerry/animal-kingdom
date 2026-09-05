@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>動物王國語音導覽</title>
+  <meta name="description" content="夜間叢林風格的動物王國語音導覽主頁，依六大生態分區進入子頁。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="gate.js"></script>
+</head>
+<body>
+  <div id="ak-gate" class="ak-gate">
+    <form id="ak-form" class="ak-card" autocomplete="on">
+      <h1>動物王國</h1>
+      <p>請輸入通行密碼後進入導覽。</p>
+      <label for="ak-pass">密碼</label>
+      <input id="ak-pass" name="password" type="password" required autocomplete="current-password">
+      <button type="submit">進入</button>
+      <p id="ak-err" class="ak-err" hidden>密碼不正確，請再試一次。</p>
+    </form>
+  </div>
+  <a class="skip" href="#atlas">跳到生態分區</a>
+
+  <nav class="nav-pill" aria-label="主要">
+    <a class="wordmark" href="#top">王國</a>
+    <ul class="nav-pill__links">
+      <li><a href="guides/preface.html">前言</a></li>
+      <li><a href="#atlas">分區</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero wrap" id="top">
+    <div>
+      <h1>動物王國語音導覽</h1>
+      <p class="hero__en">Voice Tour of the Animal Kingdom</p>
+      <p class="hero__lede">先看前言，再選一條夜路。二十六個類別各自連到獨立子頁。</p>
+    </div>
+
+    <aside class="radio" id="preface">
+      <p class="radio__kicker">入口電台</p>
+      <h2><a href="guides/preface.html">1. 前言</a></h2>
+      <p>戴上耳機。從王國大門走到第一片樹影之前，先把節奏聽完。</p>
+      <a class="wave-btn" href="guides/preface.html">
+        <span class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
+        開啟前言
+      </a>
+    </aside>
+  </header>
+
+  <main class="atlas wrap" id="atlas">
+    <div class="atlas__head">
+      <h2>選一條夜路</h2>
+      <p>點類別名稱就會進入該子頁。子頁正文稍後再接。</p>
+    </div>
+
+    <div class="atlas-layout">
+      <aside class="trail" aria-label="分區圖例">
+        <svg viewBox="0 0 48 280" aria-hidden="true">
+          <path d="M24 8 C18 48 34 72 22 110 C10 148 36 176 24 220 C16 248 28 268 24 274" fill="none" stroke="oklch(72% 0.16 162 / 0.45)" stroke-width="2"/>
+          <circle cx="24" cy="16" r="4" fill="oklch(72% 0.16 162)"/>
+          <circle cx="24" cy="62" r="4" fill="oklch(78% 0.12 120)"/>
+          <circle cx="20" cy="112" r="4" fill="oklch(78% 0.15 75)"/>
+          <circle cx="28" cy="162" r="4" fill="oklch(72% 0.12 210)"/>
+          <circle cx="22" cy="210" r="4" fill="oklch(62% 0.1 55)"/>
+          <circle cx="24" cy="258" r="4" fill="oklch(64% 0.1 230)"/>
+        </svg>
+        <ul class="legend">
+          <li><a href="#forest"><i class="dot dot--forest"></i>森林</a></li>
+          <li><a href="#grass"><i class="dot dot--grass"></i>草原</a></li>
+          <li><a href="#desert"><i class="dot dot--desert"></i>沙漠</a></li>
+          <li><a href="#polar"><i class="dot dot--polar"></i>極地</a></li>
+          <li><a href="#pre"><i class="dot dot--pre"></i>史前</a></li>
+          <li><a href="#ocean"><i class="dot dot--ocean"></i>海洋</a></li>
+        </ul>
+      </aside>
+
+      <section class="map" aria-label="生態分區地圖">
+        <article class="zone zone--forest" id="forest">
+          <div class="zone__sky sky-forest" aria-hidden="true">
+            <svg class="leaf" viewBox="0 0 400 300" width="100%" height="100%" fill="oklch(48% 0.12 150 / 0.28)">
+              <ellipse cx="70" cy="40" rx="90" ry="36" transform="rotate(-18 70 40)"/>
+              <ellipse cx="300" cy="70" rx="110" ry="40" transform="rotate(12 300 70)"/>
+              <ellipse cx="180" cy="210" rx="140" ry="50" transform="rotate(-8 180 210)"/>
+            </svg>
+          </div>
+          <div class="zone__glass">
+            <h3>森林生態區</h3>
+            <a class="zone-guide" href="guides/forest.html">5. 森林生態分區導覽</a>
+            <div class="animals">
+              <a class="animal" href="guides/gorilla.html"><span class="name">6. 大猩猩</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/panda.html"><span class="name">7. 大貓熊</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/heron.html"><span class="name">8. 蒼鷺</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/panther.html"><span class="name">9. 黑豹</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/brown-bear.html"><span class="name">10. 棕熊</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone zone--grass" id="grass">
+          <div class="zone__sky sky-grass" aria-hidden="true"></div>
+          <div class="zone__glass">
+            <h3>草原生態區</h3>
+            <a class="zone-guide" href="guides/grassland.html">12. 草原生態分區導覽</a>
+            <div class="animals">
+              <a class="animal" href="guides/hyena.html"><span class="name">13. 斑鬣狗</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/elephant.html"><span class="name">14. 大象</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/giraffe.html"><span class="name">15. 長頸鹿</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/lion.html"><span class="name">16. 獅子</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone zone--polar" id="polar">
+          <div class="zone__sky sky-polar" aria-hidden="true"></div>
+          <div class="zone__glass">
+            <h3>極地生態區</h3>
+            <a class="zone-guide" href="guides/polar.html">22. 極地生態分區導覽</a>
+            <div class="animals">
+              <a class="animal" href="guides/seal.html"><span class="name">23. 海豹</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/musk-ox.html"><span class="name">24. 麝牛</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/polar-bear.html"><span class="name">25. 北極熊</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/penguin.html"><span class="name">26. 企鵝</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone zone--desert" id="desert">
+          <div class="zone__sky sky-desert" aria-hidden="true">
+            <svg class="dune" viewBox="0 0 400 160" width="100%" height="70%" style="bottom:0;left:0;right:0;top:auto" fill="oklch(62% 0.1 70 / 0.35)">
+              <path d="M0 120 C80 70 140 90 220 60 C300 30 340 80 400 50 V160 H0 Z"/>
+            </svg>
+          </div>
+          <div class="zone__glass">
+            <h3>沙漠生態區</h3>
+            <a class="zone-guide" href="guides/desert.html">2. 沙漠生態分區導覽</a>
+            <div class="animals">
+              <a class="animal" href="guides/camel.html"><span class="name">3. 駱駝</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/fennec.html"><span class="name">4. 耳廓狐</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone zone--ocean" id="ocean">
+          <div class="zone__sky sky-ocean" aria-hidden="true">
+            <svg class="kelp" viewBox="0 0 200 200" width="40%" height="80%" style="right:8%;bottom:0;left:auto;top:auto" fill="oklch(58% 0.1 180 / 0.28)">
+              <path d="M40 200 C50 140 20 110 40 60 C55 30 35 10 48 0 C70 80 30 120 60 200 Z"/>
+              <path d="M90 200 C80 130 110 90 88 40 C78 18 102 8 96 0 C130 70 90 130 120 200 Z"/>
+            </svg>
+          </div>
+          <div class="zone__glass">
+            <h3>海洋生態區</h3>
+            <a class="zone-guide" href="guides/ocean.html">11. 海洋生態分區導覽</a>
+          </div>
+        </article>
+
+        <article class="zone zone--pre" id="pre">
+          <div class="zone__sky sky-pre" aria-hidden="true"></div>
+          <div class="zone__glass">
+            <h3>史前生命區</h3>
+            <a class="zone-guide" href="guides/prehistoric.html">17. 史前生命分區導覽</a>
+            <div class="animals">
+              <a class="animal" href="guides/trex.html"><span class="name">18. 暴龍</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/herbivore.html"><span class="name">19. 植食性恐龍</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/raptor.html"><span class="name">20. 迅猛龍</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+              <a class="animal" href="guides/pterosaur.html"><span class="name">21. 翼龍</span><span class="audio-mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></span></a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot-stmt">
+    <p class="foot-stmt__line">夜裡走進王國，聲音會帶路。</p>
+    <div class="foot-stmt__meta">
+      <span class="wordmark">動物王國</span>
+      <span>語音導覽主頁 · 子頁稍後製作</span>
+    </div>
+  </footer>
+
+  <div class="player" role="region" aria-label="語音播放器">
+    <button class="play" type="button" id="playToggle" aria-label="播放">
+      <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72L19 12 8 5.14z"/></svg>
+    </button>
+    <div class="now">
+      <strong id="trackTitle">尚未播放</strong>
+      <span id="trackZone">點類別進入子頁</span>
+      <div class="scrub">
+        <span class="time" id="tCur">0:00</span>
+        <input id="seek" type="range" min="0" max="1000" value="0" aria-label="播放進度">
+        <span class="time" id="tDur">0:00</span>
+      </div>
+    </div>
+    <label class="vol">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+      <input id="volume" type="range" min="0" max="100" value="80" aria-label="音量">
+    </label>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

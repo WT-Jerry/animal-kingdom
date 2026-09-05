@@ -1,0 +1,78 @@
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4
+ * genre: atmospheric · macrostructure: Map / Diagram
+ * hero: H2 split diptych · knobs: ratio=6/6, right=preface-radio, divider=negative-space
+ * nav: N5 Floating pill · knobs: width=content-sized, backdrop=blur+saturate, anchor=top-centred
+ * footer: Ft5 Statement · knobs: sentence width=28ch, wordmark=under, rule=hairline
+ * feature: spatial habitat atlas (not F1 equal tiles)
+ * cta: C4 sticky bottom bar = now-playing radio
+ * theme: custom · vibe: "night jungle, bioluminescent, expedition radio"
+ * paper: oklch(14% 0.028 151) · accent: oklch(72% 0.16 162)
+ * display: Cormorant Garamond · body: Noto Sans TC
+ * axes: dark / roman-serif / chromatic-green ~162
+ * studied: no · context: explicit brief · enrichment: Tier-A CSS biome skies
+ * Previous nav: none (first run). This build: N5, because atmospheric + imagery under blur.
+ */
+
+:root {
+  --color-paper: oklch(14% 0.028 151);
+  --color-paper-2: oklch(18% 0.032 151);
+  --color-paper-3: oklch(22% 0.034 152);
+  --color-ink: oklch(94% 0.012 145);
+  --color-ink-2: oklch(78% 0.018 150);
+  --color-muted: oklch(68% 0.016 150);
+  --color-rule: oklch(30% 0.028 151);
+  --color-rule-2: oklch(26% 0.024 151);
+  --color-accent: oklch(72% 0.16 162);
+  --color-accent-ink: oklch(16% 0.03 151);
+  --color-audio: oklch(72% 0.12 210);
+  --color-signal: oklch(78% 0.15 75);
+  --color-focus: oklch(76% 0.18 162);
+  --color-danger: oklch(68% 0.14 25);
+
+  --font-display: "Cormorant Garamond", "Noto Serif TC", "Songti TC", serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.9531rem;
+  --text-2xl: 2.4414rem;
+  --text-display: clamp(2.5rem, 5vw + 0.6rem, 4.6rem);
+  --text-display-s: clamp(1.7rem, 3vw + 0.6rem, 2.6rem);
+  --text-foot: clamp(1.75rem, 4.4vw, 3.1rem);
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --page-gutter: clamp(1rem, 4vw, 2.5rem);
+  --player-h: 5.5rem;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+
+  --rule-hair: 1px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  --z-base: 0;
+  --z-content: 1;
+  --z-nav: 40;
+  --z-player: 50;
+  --z-grain: 60;
+
+  --shadow-nav: 0 10px 28px -16px oklch(8% 0.03 151 / 0.72);
+  --shadow-player: 0 -12px 32px -18px oklch(8% 0.03 151 / 0.8);
+}
