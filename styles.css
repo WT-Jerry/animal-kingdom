@@ -233,6 +233,7 @@ a:hover {
   font-size: var(--text-sm);
   color: var(--color-accent);
   font-weight: 500;
+  letter-spacing: 0.14em;
 }
 
 .radio h2 {
@@ -256,7 +257,8 @@ a:hover {
 .radio p {
   margin: var(--space-sm) 0 var(--space-lg);
   color: var(--color-ink-2);
-  max-width: 36ch;
+  max-width: 22em;
+  line-height: 1.75;
 }
 
 .wave-btn {
