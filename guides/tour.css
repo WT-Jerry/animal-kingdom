@@ -93,6 +93,7 @@ a {
 }
 
 .tools {
+  position: relative;
   display: flex;
   gap: 0.35rem;
 }
@@ -107,6 +108,56 @@ a {
   color: var(--ink);
   cursor: pointer;
   border-radius: 50%;
+}
+
+.icon-btn[aria-expanded="true"] {
+  color: var(--gold);
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% - 0.1rem);
+  right: 0;
+  z-index: 30;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  box-shadow: 0 14px 32px rgb(0 0 0 / 0.45);
+}
+
+.lang-menu button {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.62rem 0.7rem;
+  border: 0;
+  border-radius: 0.45rem;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.92rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lang-menu button span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.lang-menu button[aria-selected="true"] {
+  color: var(--gold);
+  background: #242424;
+}
+
+.lang-menu button[aria-selected="true"] span {
+  color: color-mix(in srgb, var(--gold) 70%, var(--muted));
 }
 
 .cover-wrap {

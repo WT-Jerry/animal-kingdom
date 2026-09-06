@@ -73,4 +73,85 @@
       document.querySelector(".tab-rule").dataset.tab = id;
     });
   });
+
+  const langBtn = document.getElementById("langBtn");
+  const langMenu = document.getElementById("langMenu");
+  const LANG_META = {
+    zh: { htmlLang: "zh-Hant", label: "語言：繁體中文" },
+    en: { htmlLang: "en", label: "Language: English" }
+  };
+
+  const fileName = (url) => decodeURIComponent(String(url || "").split("/").pop() || "");
+
+  const setLangMenu = (open) => {
+    if (!langBtn || !langMenu) return;
+    langMenu.hidden = !open;
+    langBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+
+  const applyLang = (lang) => {
+    const next = LANG_META[lang] ? lang : "zh";
+    const spec = LANG_META[next];
+    document.documentElement.lang = spec.htmlLang;
+    document.querySelectorAll("[data-lang-copy]").forEach((el) => {
+      el.hidden = el.getAttribute("data-lang-copy") !== next;
+    });
+    document.querySelectorAll("[data-lang]").forEach((btn) => {
+      btn.setAttribute("aria-selected", btn.getAttribute("data-lang") === next ? "true" : "false");
+    });
+    langBtn.setAttribute("aria-label", spec.label);
+
+    const nextSrc = audio.getAttribute(`data-src-${next}`);
+    if (nextSrc && fileName(audio.currentSrc || audio.getAttribute("src")) !== fileName(nextSrc)) {
+      const wasPlaying = !audio.paused && !audio.ended;
+      const t = audio.currentTime || 0;
+      const d = audio.duration || 0;
+      const ratio = d > 0 ? t / d : 0;
+      audio.src = nextSrc;
+      const resume = () => {
+        audio.removeEventListener("loadedmetadata", resume);
+        if (ratio > 0 && audio.duration) {
+          audio.currentTime = ratio * audio.duration;
+        }
+        audio.playbackRate = RATES[rateIndex];
+        paint();
+        if (wasPlaying) audio.play();
+      };
+      audio.addEventListener("loadedmetadata", resume);
+      audio.load();
+    }
+
+    try {
+      localStorage.setItem("ak-guide-lang", next);
+    } catch (_) {
+      /* ignore quota / private mode */
+    }
+  };
+
+  if (langBtn && langMenu) {
+    let stored = "zh";
+    try {
+      stored = localStorage.getItem("ak-guide-lang") || "zh";
+    } catch (_) {
+      stored = "zh";
+    }
+    applyLang(stored);
+
+    langBtn.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      setLangMenu(langMenu.hidden);
+    });
+
+    langMenu.addEventListener("click", (ev) => {
+      const opt = ev.target.closest("[data-lang]");
+      if (!opt) return;
+      applyLang(opt.getAttribute("data-lang"));
+      setLangMenu(false);
+    });
+
+    document.addEventListener("click", () => setLangMenu(false));
+    document.addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape") setLangMenu(false);
+    });
+  }
 })();

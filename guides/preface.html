@@ -21,12 +21,20 @@
         </ul>
       </nav>
       <div class="tools">
-        <button class="icon-btn" type="button" aria-label="語言：繁體中文" disabled>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="語言：繁體中文" aria-haspopup="listbox" aria-expanded="false" aria-controls="langMenu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <circle cx="12" cy="12" r="9"/>
             <path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>
           </svg>
         </button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="選擇語言" hidden>
+          <li>
+            <button type="button" role="option" data-lang="zh" aria-selected="true">繁中<span>繁體中文</span></button>
+          </li>
+          <li>
+            <button type="button" role="option" data-lang="en" aria-selected="false">English</button>
+          </li>
+        </ul>
       </div>
     </header>
 
@@ -40,7 +48,7 @@
     </div>
 
     <section class="player" aria-label="語音播放器">
-      <audio id="guideAudio" src="media/preface-sal.mp3" preload="metadata"></audio>
+      <audio id="guideAudio" src="media/preface-sal.mp3" data-src-zh="media/preface-sal.mp3" data-src-en="media/preface-sal-en.mp3" preload="metadata"></audio>
       <div class="rate-row">
         <button class="rate" id="rateBtn" type="button" aria-label="播放速度">1x</button>
       </div>
@@ -83,13 +91,25 @@
     </div>
 
     <article class="panel" id="panel-intro" hidden>
-      <p>這是《動物王國大探險展》語音導覽的入口。六大展區為森林、沙漠、海洋、草原、極地與史前生命。</p>
-      <p>上方可播放前言導覽語音。逐字稿與語音內容相同。</p>
+      <div data-lang-copy="zh">
+        <p>這是《動物王國大探險展》語音導覽的入口。六大展區為森林、沙漠、海洋、草原、極地與史前生命。</p>
+        <p>上方可播放前言導覽語音。逐字稿與語音內容相同。</p>
+      </div>
+      <div data-lang-copy="en" hidden>
+        <p>This is the entrance to the Animal Kingdom Grand Adventure Exhibition audio guide. The six galleries are forest, desert, ocean, grassland, polar regions, and prehistoric life.</p>
+        <p>Play the preface narration above. The transcript matches the audio.</p>
+      </div>
     </article>
 
     <article class="panel" id="panel-script">
-      <p>這是一場橫跨億萬年地球生態的旅程，時間從現代的世界，回溯到恐龍統治的洪荒，從森林、沙漠、海洋、草原、極地到史前生命一共六大展區，包含了所有陸海空生命的繁衍軌跡，結合真實動物標本與沈浸式光影體驗，還原不同的生態場景，邀請觀展者一同體驗，走進地球不同的美麗角落，一次感受生命的多元樣貌。</p>
-      <p>讓我們一起進入《動物王國大探險展》，開始與動物間的奇幻旅程。</p>
+      <div data-lang-copy="zh">
+        <p>這是一場橫跨億萬年地球生態的旅程，時間從現代的世界，回溯到恐龍統治的洪荒，從森林、沙漠、海洋、草原、極地到史前生命一共六大展區，包含了所有陸海空生命的繁衍軌跡，結合真實動物標本與沈浸式光影體驗，還原不同的生態場景，邀請觀展者一同體驗，走進地球不同的美麗角落，一次感受生命的多元樣貌。</p>
+        <p>讓我們一起進入《動物王國大探險展》，開始與動物間的奇幻旅程。</p>
+      </div>
+      <div data-lang-copy="en" hidden>
+        <p>This is a journey across hundreds of millions of years of Earth's ecology. From the modern world, we travel back to the primordial age when dinosaurs ruled. Six galleries—forest, desert, ocean, grassland, polar regions, and prehistoric life—trace the lineage of all life on land, in the sea, and in the air. Combining real animal specimens with immersive light-and-shadow experiences, each habitat is brought back to life, inviting visitors to walk through Earth's many beautiful corners and feel the diversity of life in a single visit.</p>
+        <p>Let us enter the Animal Kingdom Grand Adventure Exhibition, and begin this wondrous journey with the animals.</p>
+      </div>
     </article>
   </div>
   <script src="tour-player.js"></script>
