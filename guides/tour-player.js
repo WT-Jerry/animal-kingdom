@@ -73,17 +73,4 @@
       document.querySelector(".tab-rule").dataset.tab = id;
     });
   });
-
-  const sizeBtn = document.getElementById("typeSize");
-  if (sizeBtn) {
-    const steps = [1, 1.08, 1.16];
-    let i = 0;
-    sizeBtn.addEventListener("click", () => {
-      i = (i + 1) % steps.length;
-      document.documentElement.style.setProperty("--read", String(steps[i]));
-      document.querySelectorAll(".panel").forEach((p) => {
-        p.style.fontSize = `calc(0.98rem * ${steps[i]})`;
-      });
-    });
-  }
 })();
