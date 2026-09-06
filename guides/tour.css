@@ -296,14 +296,14 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .skip15 {
-  width: 3rem;
-  height: 3rem;
+  width: 3.25rem;
+  height: 3.25rem;
   color: var(--ink);
 }
 
 .skip15 svg {
-  width: 2.15rem;
-  height: 2.15rem;
+  width: 2.5rem;
+  height: 2.5rem;
   display: block;
   overflow: visible;
 }
