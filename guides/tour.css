@@ -298,24 +298,14 @@ input[type="range"]::-webkit-slider-thumb {
 .skip15 {
   width: 3rem;
   height: 3rem;
-  position: relative;
   color: var(--ink);
 }
 
 .skip15 svg {
-  width: 2rem;
-  height: 2rem;
-}
-
-.skip15 b {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 0.62rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  transform: translateY(2px);
+  width: 2.15rem;
+  height: 2.15rem;
+  display: block;
+  overflow: visible;
 }
 
 .content-tabs {
