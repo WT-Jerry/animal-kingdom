@@ -2,21 +2,121 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>15. 長頸鹿 · 動物王國語音導覽</title>
-  <link rel="stylesheet" href="../styles.css">
-  <style>
-    .stub { min-height: 70dvh; display: grid; place-content: center; text-align: center; gap: 1rem; padding: 6rem 1.5rem 4rem; }
-    .stub a { color: var(--color-accent); }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>長頸鹿 · 動物王國語音導覽</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tour.css">
   <script src="../gate.js"></script>
 </head>
 <body>
-  <main class="stub">
-    <p class="radio__kicker">子頁預備</p>
-    <h1>15. 長頸鹿</h1>
-    <p>這頁之後再放正文與語音。先回主頁選其他分區。</p>
-    <p><a href="../index.html">回主頁</a></p>
-  </main>
+  <div class="shell">
+    <header class="topbar">
+      <nav aria-label="導覽">
+        <ul class="tabs-nav">
+          <li><a href="../index.html">首頁</a></li>
+          <li><a href="../index.html#atlas">清單 <span class="badge">26</span></a></li>
+          <li><a href="giraffe.html" aria-current="page">導覽</a></li>
+        </ul>
+      </nav>
+      <div class="tools">
+        <button class="icon-btn" id="langBtn" type="button" aria-label="語言：繁體中文" aria-haspopup="listbox" aria-expanded="false" aria-controls="langMenu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>
+          </svg>
+        </button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="選擇語言" hidden>
+          <li>
+            <button type="button" role="option" data-lang="zh" aria-selected="true">繁中<span>繁體中文</span></button>
+          </li>
+          <li>
+            <button type="button" role="option" data-lang="en" aria-selected="false">English</button>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="cover-wrap">
+      <img class="cover" src="media/giraffe-cover.jpg?v=1" width="1024" height="1024" alt="東非草原金合歡樹間，長頸鹿正採食樹頂嫩葉">
+    </div>
+
+    <div class="meta">
+      <h1 class="title">長頸鹿</h1>
+    </div>
+
+    <section class="player" aria-label="語音播放器">
+      <audio id="guideAudio" src="media/giraffe-sal.mp3" data-src-zh="media/giraffe-sal.mp3" data-src-en="media/giraffe-sal-en.mp3" preload="metadata"></audio>
+      <div class="rate-row">
+        <button class="rate" id="rateBtn" type="button" aria-label="播放速度">1x</button>
+      </div>
+      <div class="scrub">
+        <span class="time" id="tCur">0:00</span>
+        <input id="seek" type="range" min="0" max="0" value="0" aria-label="播放進度">
+        <span class="time" id="tLeft">-0:00</span>
+      </div>
+      <div class="controls">
+        <a class="ctrl" href="elephant.html" aria-label="上一則：大象">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 12l10-7v14L6 12z"/></svg>
+        </a>
+        <button class="skip15" id="back15" type="button" aria-label="倒退 15 秒">
+          <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
+            <path d="M11 30 A 17 17 0 1 0 28 13" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M28 13 H18" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M21.6 9.2 L15 13 L21.6 16.8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="28" y="31.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="currentColor" stroke="none" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">15</text>
+          </svg>
+        </button>
+        <button class="play" id="playBtn" type="button" aria-label="播放">
+          <svg id="playIcon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 6.2v11.6L19 12 9 6.2z"/></svg>
+        </button>
+        <button class="skip15" id="fwd15" type="button" aria-label="快轉 15 秒">
+          <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
+            <path d="M45 30 A 17 17 0 1 1 28 13" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M28 13 H38" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M34.4 9.2 L41 13 L34.4 16.8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="28" y="31.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="currentColor" stroke="none" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">15</text>
+          </svg>
+        </button>
+        <a class="ctrl" href="lion.html" aria-label="下一則：獅子">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 12L8 5v14l10-7z"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <div class="content-tabs" role="tablist" aria-label="內容">
+      <button type="button" role="tab" data-tab="intro" aria-selected="false" aria-controls="panel-intro">介紹</button>
+      <button type="button" role="tab" data-tab="script" aria-selected="true" aria-controls="panel-script">逐字稿</button>
+      <span class="tab-rule" data-tab="script" aria-hidden="true"><i></i></span>
+    </div>
+
+    <article class="panel" id="panel-intro" hidden>
+      <div data-lang-copy="zh">
+        <p>這是《動物王國大探險展》草原生態區的長頸鹿導覽。在此聆聽全世界最高的動物，如何演化出長頸。</p>
+        <p>上方可播放導覽語音。逐字稿與語音內容相同。</p>
+      </div>
+      <div data-lang-copy="en" hidden>
+        <p>This is the giraffe stop in the grassland gallery of the Animal Kingdom Grand Adventure Exhibition. Listen here to how the tallest animal on Earth came by its long neck.</p>
+        <p>Play the narration above. The transcript matches the audio.</p>
+      </div>
+    </article>
+
+    <article class="panel" id="panel-script">
+      <div data-lang-copy="zh">
+        <p>陽光照耀著東非草原上的金合歡樹，全世界最高的動物正優雅緩緩移動，享受著開闊視野和樹頂嫩葉，這裡是長頸鹿專用的高空景觀餐廳。</p>
+        <p>長頸鹿的脖子究竟是如何演化來的呢？有一派學者認為，這是短脖子和長脖子的祖先，在演化過程中的優勝劣汰。長脖子能輕易吃到樹上的葉子，所以更容易存活下來。另一派學者認為，雄性長頸鹿會以脖子與頭部作為武器，脖子強壯在演化過程會更具存活優勢。但關於長脖子的爭議，科學界目前仍沒有單一的定論。</p>
+        <p>即使長頸鹿的脖子那麼長，卻和人類一樣只有7塊頸椎骨，而為了將血液輸送到近2公尺高的頭部，牠們的血壓是全部哺乳動物最高的，為了防止低頭時不會血液逆流，頸靜脈還有特殊瓣膜。</p>
+        <p>長頸鹿在夜晚還會發出一種低沉規律的哼鳴聲，就像夜間雷達一樣，可以幫助在能見度為零的黑夜裡，確認同伴的訊息。</p>
+      </div>
+      <div data-lang-copy="en" hidden>
+        <p>Sunlight gilds the acacia trees of the East African grassland. The tallest animal in the world moves slowly, with grace, enjoying the open view and the tender leaves at the crown. This is the giraffe's own high restaurant with a view.</p>
+        <p>How did the giraffe's neck evolve? One school holds that it is survival of the fittest between short-necked and long-necked ancestors. A long neck can easily reach the leaves in the trees, and so is more likely to live. Another school holds that male giraffes use neck and head as weapons, and a strong neck would have more advantage in the course of evolution. But on the long neck, science still has no single settled view.</p>
+        <p>Even with a neck so long, the giraffe has only seven cervical vertebrae, the same as a human. To send blood to a head nearly two meters up, their blood pressure is the highest of all mammals; and to keep blood from running back when they lower the head, the jugular has special valves.</p>
+        <p>At night the giraffe also gives a low, regular hum, like a radar in the dark, that can help them, in a night of zero visibility, confirm the presence of companions.</p>
+      </div>
+    </article>
+  </div>
+  <script src="tour-player.js"></script>
 </body>
 </html>
