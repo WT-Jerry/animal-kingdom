@@ -50,10 +50,14 @@
   });
 
   back15.addEventListener("click", () => {
-    audio.currentTime = Math.max(0, audio.currentTime - 15);
+    audio.currentTime = Math.max(0, (audio.currentTime || 0) - 15);
+    paint();
   });
   fwd15.addEventListener("click", () => {
-    audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 15);
+    const t = (audio.currentTime || 0) + 15;
+    const d = Number.isFinite(audio.duration) ? audio.duration : t;
+    audio.currentTime = Math.min(d, t);
+    paint();
   });
 
   rateBtn.addEventListener("click", () => {

@@ -258,13 +258,14 @@ input[type="range"]::-webkit-slider-thumb {
 .controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 0.2rem 1.1rem;
+  justify-content: center;
+  padding: 1rem 0 1.25rem;
 }
 
 .ctrl {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 2.5rem;
   display: grid;
   place-items: center;
   border: 0;
@@ -272,6 +273,8 @@ input[type="range"]::-webkit-slider-thumb {
   color: var(--ink);
   cursor: pointer;
   border-radius: 50%;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .ctrl[disabled] {
@@ -280,8 +283,9 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .play {
-  width: 4.4rem;
-  height: 4.4rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  flex: 0 0 4.5rem;
   border: 0;
   border-radius: 50%;
   background: #ececec;
@@ -296,16 +300,63 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .skip15 {
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
   color: var(--ink);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  overflow: visible;
+}
+
+#back15 {
+  margin-left: 0.25rem;
+  margin-right: 1.75rem;
+}
+
+#fwd15 {
+  margin-left: 1.75rem;
+  margin-right: 0.25rem;
 }
 
 .skip15 svg {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 56px;
+  height: 56px;
   display: block;
   overflow: visible;
+}
+
+.skip15:hover,
+.skip15:active,
+.skip15:focus {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+.skip15:hover {
+  filter: brightness(1.18);
+}
+
+.skip15:active {
+  transform: scale(0.94);
+}
+
+.skip15:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--gold);
 }
 
 .content-tabs {
@@ -376,7 +427,8 @@ input[type="range"]::-webkit-slider-thumb {
 
 @media (prefers-reduced-motion: reduce) {
   .tab-rule i,
-  .play:active {
+  .play:active,
+  .skip15:active {
     transition: none;
     transform: none;
   }
