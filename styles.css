@@ -752,6 +752,10 @@ a:hover {
     background: url("media/forest-sky.jpg?v=2") center center / cover no-repeat;
   }
 
+  .zone--grass .sky-grass {
+    background: url("media/grass-sky.jpg?v=6") center center / cover no-repeat;
+  }
+
   .zone__glass {
     padding: 1rem 1rem 1.1rem;
     border-radius: 0;
