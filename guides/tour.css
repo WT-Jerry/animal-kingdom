@@ -396,9 +396,9 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .panel {
-  margin: 0 var(--pad) 1.5rem;
-  padding: 1.05rem 1rem 1.2rem;
-  border-radius: 0.7rem;
+  margin: 0;
+  padding: 1.05rem var(--pad) calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  border-radius: 0;
   background: #2a2a2a;
   color: #ececec;
   font-size: 0.98rem;
