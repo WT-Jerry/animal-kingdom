@@ -22,6 +22,7 @@ python3 -m http.server 8765
 | `index.html` | 登入門與主頁 |
 | `gate.js` | 通行檢查 |
 | `guides/` | 二十六個子頁 |
+| `guides/subpage-spec.md` | 子頁定版規範（後續頁照這份做） |
 | `guides/media/` | 前言封面與導覽語音 |
 
 ## 子頁對照
