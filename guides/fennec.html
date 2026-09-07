@@ -2,21 +2,121 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>4. 耳廓狐 · 動物王國語音導覽</title>
-  <link rel="stylesheet" href="../styles.css">
-  <style>
-    .stub { min-height: 70dvh; display: grid; place-content: center; text-align: center; gap: 1rem; padding: 6rem 1.5rem 4rem; }
-    .stub a { color: var(--color-accent); }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>耳廓狐 · 動物王國語音導覽</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tour.css">
   <script src="../gate.js"></script>
 </head>
 <body>
-  <main class="stub">
-    <p class="radio__kicker">子頁預備</p>
-    <h1>4. 耳廓狐</h1>
-    <p>這頁之後再放正文與語音。先回主頁選其他分區。</p>
-    <p><a href="../index.html">回主頁</a></p>
-  </main>
+  <div class="shell">
+    <header class="topbar">
+      <nav aria-label="導覽">
+        <ul class="tabs-nav">
+          <li><a href="../index.html">首頁</a></li>
+          <li><a href="../index.html#atlas">清單 <span class="badge">26</span></a></li>
+          <li><a href="fennec.html" aria-current="page">導覽</a></li>
+        </ul>
+      </nav>
+      <div class="tools">
+        <button class="icon-btn" id="langBtn" type="button" aria-label="語言：繁體中文" aria-haspopup="listbox" aria-expanded="false" aria-controls="langMenu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>
+          </svg>
+        </button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="選擇語言" hidden>
+          <li>
+            <button type="button" role="option" data-lang="zh" aria-selected="true">繁中<span>繁體中文</span></button>
+          </li>
+          <li>
+            <button type="button" role="option" data-lang="en" aria-selected="false">English</button>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="cover-wrap">
+      <img class="cover" src="media/fennec-cover.jpg?v=1" width="1024" height="1024" alt="黃昏沙丘上的耳廓狐，一對大耳朵豎起，淺金色毛皮迎著暖光">
+    </div>
+
+    <div class="meta">
+      <h1 class="title">耳廓狐</h1>
+    </div>
+
+    <section class="player" aria-label="語音播放器">
+      <audio id="guideAudio" src="media/fennec-sal.mp3" data-src-zh="media/fennec-sal.mp3" data-src-en="media/fennec-sal-en.mp3" preload="metadata"></audio>
+      <div class="rate-row">
+        <button class="rate" id="rateBtn" type="button" aria-label="播放速度">1x</button>
+      </div>
+      <div class="scrub">
+        <span class="time" id="tCur">0:00</span>
+        <input id="seek" type="range" min="0" max="0" value="0" aria-label="播放進度">
+        <span class="time" id="tLeft">-0:00</span>
+      </div>
+      <div class="controls">
+        <a class="ctrl" href="camel.html" aria-label="上一則：駱駝">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 12l10-7v14L6 12z"/></svg>
+        </a>
+        <button class="skip15" id="back15" type="button" aria-label="倒退 15 秒">
+          <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
+            <path d="M11 30 A 17 17 0 1 0 28 13" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M28 13 H18" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M21.6 9.2 L15 13 L21.6 16.8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="28" y="31.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="currentColor" stroke="none" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">15</text>
+          </svg>
+        </button>
+        <button class="play" id="playBtn" type="button" aria-label="播放">
+          <svg id="playIcon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 6.2v11.6L19 12 9 6.2z"/></svg>
+        </button>
+        <button class="skip15" id="fwd15" type="button" aria-label="快轉 15 秒">
+          <svg viewBox="0 0 56 56" fill="none" aria-hidden="true">
+            <path d="M45 30 A 17 17 0 1 1 28 13" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M28 13 H38" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M34.4 9.2 L41 13 L34.4 16.8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="28" y="31.5" text-anchor="middle" dominant-baseline="central" font-size="17" font-weight="700" fill="currentColor" stroke="none" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">15</text>
+          </svg>
+        </button>
+        <a class="ctrl" href="forest.html" aria-label="下一則：森林生態分區導覽">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 12L8 5v14l10-7z"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <div class="content-tabs" role="tablist" aria-label="內容">
+      <button type="button" role="tab" data-tab="intro" aria-selected="false" aria-controls="panel-intro">介紹</button>
+      <button type="button" role="tab" data-tab="script" aria-selected="true" aria-controls="panel-script">逐字稿</button>
+      <span class="tab-rule" data-tab="script" aria-hidden="true"><i></i></span>
+    </div>
+
+    <article class="panel" id="panel-intro" hidden>
+      <div data-lang-copy="zh">
+        <p>這是《動物王國大探險展》沙漠生態區的耳廓狐導覽。在此聆聽這隻大耳朵的沙漠狐狸，如何在荒蕪沙丘間生存與溝通。</p>
+        <p>上方可播放導覽語音。逐字稿與語音內容相同。</p>
+      </div>
+      <div data-lang-copy="en" hidden>
+        <p>This is the fennec fox stop in the desert gallery of the Animal Kingdom Grand Adventure Exhibition. Listen here to how this large-eared desert fox lives and speaks among the barren dunes.</p>
+        <p>Play the narration above. The transcript matches the audio.</p>
+      </div>
+    </article>
+
+    <article class="panel" id="panel-script">
+      <div data-lang-copy="zh">
+        <p>眼前的沙漠狐標本，有著長長的大耳朵，每當傍晚沙漠開始降溫時，牠們便會從地平線上探出頭來。</p>
+        <p>不同於其他傾向獨居的犬科，沙漠狐選擇了高度社會化的群居策略。牠們以十隻以上的家族為單位，由父母帶領，與成年的兄姐共同撫育幼崽，在死寂的沙丘間，透過複雜的聲音信號進行社交溝通。</p>
+        <p>生存的嚴酷，迫使牠們將體內的水分運用優化到極致。沙漠狐終生不直接飲用液體水，僅憑藉獵物的組織液與植物根莖果實維持水平衡。特別的腎臟構造能將排泄造成的水分流失壓低到物理極限，排出超濃稠、近乎結晶狀的尿液。</p>
+        <p>牠們的招牌大耳朵在白天作為散熱板，當夜幕降臨，轉變為敏銳的聲學雷達，捕捉沙層深處昆蟲移動的微弱震動。腳底能阻絕熱輻射的防燙毛髮，讓牠們在沙漠中自由穿行。沙漠狐的每一種身體構造，都成為這片荒蕪中不可思議的生命奇蹟。</p>
+      </div>
+      <div data-lang-copy="en" hidden>
+        <p>Before your eyes is a desert fox specimen, with those long, large ears. When evening comes and the desert begins to cool, they lift their heads above the horizon.</p>
+        <p>Unlike other canids that tend to live alone, the desert fox has chosen a highly social, group-living strategy. They live in family units of more than ten, led by the parents, with adult brothers and sisters helping to raise the young. Among the silent dunes they keep in touch through a complex code of calls.</p>
+        <p>The harshness of survival has forced them to use every drop of water in the body to the extreme. Desert foxes never drink liquid water in their lives; they keep the balance only with the tissue fluids of prey and the roots, stems, and fruits of plants. A special kidney can press the water lost in excretion down to a physical limit, producing urine so thick it is almost crystalline.</p>
+        <p>Those signature ears work as heat sinks by day. When night falls they become a keen acoustic radar, catching the faint tremor of insects moving deep in the sand. Hair on the soles blocks radiant heat, so they can travel the desert freely. Every structure of the desert fox becomes an improbable miracle of life in this barren land.</p>
+      </div>
+    </article>
+  </div>
+  <script src="tour-player.js"></script>
 </body>
 </html>
