@@ -28,7 +28,7 @@ body {
     radial-gradient(70% 50% at 12% -10%, oklch(32% 0.08 155 / 0.38), transparent 58%),
     radial-gradient(55% 40% at 92% 8%, oklch(28% 0.06 210 / 0.22), transparent 52%),
     linear-gradient(180deg, oklch(16% 0.03 151), var(--color-paper) 42%, oklch(12% 0.026 151));
-  padding-bottom: calc(var(--player-h) + var(--space-lg) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(var(--space-lg) + env(safe-area-inset-bottom, 0px));
 }
 
 body::before {
@@ -567,120 +567,6 @@ a:hover {
   font-size: var(--text-sm);
 }
 
-/* Sticky player */
-.player {
-  position: fixed;
-  left: 50%;
-  bottom: 0.7rem;
-  transform: translateX(-50%);
-  z-index: var(--z-player);
-  width: min(920px, calc(100% - 1.4rem));
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: var(--space-md);
-  min-height: var(--player-h);
-  padding: 0.7rem 0.85rem;
-  border-radius: 1.4rem;
-  background: color-mix(in oklch, var(--color-paper-2) 78%, transparent);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: var(--rule-hair) solid color-mix(in oklch, var(--color-ink) 14%, transparent);
-  box-shadow: var(--shadow-player);
-}
-
-.play {
-  width: 3rem;
-  height: 3rem;
-  border: 0;
-  border-radius: 50%;
-  background: var(--color-accent);
-  color: var(--color-accent-ink);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-}
-
-.play:hover {
-  filter: brightness(1.06);
-}
-
-.play:active {
-  transform: scale(0.98);
-}
-
-.play svg {
-  width: 1.15rem;
-  height: 1.15rem;
-}
-
-.now {
-  min-width: 0;
-}
-
-.now strong {
-  display: block;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.now span {
-  display: block;
-  font-size: var(--text-xs);
-  color: var(--color-muted);
-}
-
-.scrub {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 0.55rem;
-  align-items: center;
-  margin-top: 0.35rem;
-}
-
-.time {
-  font-variant-numeric: tabular-nums;
-  font-size: 0.7rem;
-  color: var(--color-muted);
-}
-
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 4px;
-  border-radius: var(--radius-pill);
-  background: var(--color-rule);
-  outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  border: 0;
-  cursor: pointer;
-}
-
-.vol {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  width: 8.5rem;
-  color: var(--color-ink-2);
-}
-
-.vol svg {
-  width: 1.1rem;
-  height: 1.1rem;
-  flex: 0 0 auto;
-}
-
 /* Biome skies */
 .sky-forest {
   background:
@@ -730,8 +616,7 @@ input[type="range"]::-webkit-slider-thumb {
 @media (prefers-reduced-transparency: reduce) {
   .nav-pill,
   .radio,
-  .zone__glass,
-  .player {
+  .zone__glass {
     background: var(--color-paper-2);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -742,8 +627,7 @@ input[type="range"]::-webkit-slider-thumb {
   html { scroll-behavior: auto; }
   .wave span { animation: none; transform: scaleY(0.7); }
   .nav-cta:active,
-  .wave-btn:active,
-  .play:active { transform: none; }
+  .wave-btn:active { transform: none; }
 }
 
 @media (min-width: 60rem) {
@@ -757,8 +641,7 @@ input[type="range"]::-webkit-slider-thumb {
   .wave-btn,
   .zone-guide,
   .animal,
-  .legend a,
-  .play {
+  .legend a {
     min-height: 2.75rem;
   }
   .audio-mini {
@@ -910,14 +793,6 @@ input[type="range"]::-webkit-slider-thumb {
     padding-block: 0.55rem;
   }
 
-  .vol {
-    display: none;
-  }
-
-  .player {
-    grid-template-columns: auto minmax(0, 1fr);
-  }
-
   .foot-stmt__meta {
     flex-direction: column;
     align-items: flex-start;
@@ -990,29 +865,6 @@ input[type="range"]::-webkit-slider-thumb {
   .atlas__head {
     max-width: none;
     margin-bottom: var(--space-md);
-  }
-
-  .player {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: none;
-    width: 100%;
-    max-width: none;
-    border-radius: 1rem 1rem 0 0;
-    padding: 0.7rem 0.9rem max(0.7rem, env(safe-area-inset-bottom, 0px));
-    gap: 0.7rem;
-  }
-
-  .play {
-    width: 2.85rem;
-    height: 2.85rem;
-  }
-
-  .now span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .foot-stmt {

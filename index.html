@@ -192,26 +192,5 @@
       <span>語音導覽</span>
     </div>
   </footer>
-
-  <div class="player" role="region" aria-label="語音播放器">
-    <button class="play" type="button" id="playToggle" aria-label="播放">
-      <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72L19 12 8 5.14z"/></svg>
-    </button>
-    <div class="now">
-      <strong id="trackTitle">尚未播放</strong>
-      <span id="trackZone">準備聆聽</span>
-      <div class="scrub">
-        <span class="time" id="tCur">0:00</span>
-        <input id="seek" type="range" min="0" max="1000" value="0" aria-label="播放進度">
-        <span class="time" id="tDur">0:00</span>
-      </div>
-    </div>
-    <label class="vol">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
-      <input id="volume" type="range" min="0" max="100" value="80" aria-label="音量">
-    </label>
-  </div>
-
-  <script src="app.js"></script>
 </body>
 </html>
