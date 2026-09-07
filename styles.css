@@ -514,8 +514,8 @@ a:hover {
 }
 
 .audio-mini {
-  width: 1.85rem;
-  height: 1.85rem;
+  width: 2.35rem;
+  height: 2.35rem;
   display: grid;
   place-items: center;
   border: 0;
@@ -531,8 +531,8 @@ a:hover {
 }
 
 .audio-mini svg {
-  width: 0.95rem;
-  height: 0.95rem;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 /* Footer */
@@ -645,8 +645,12 @@ a:hover {
     min-height: 2.75rem;
   }
   .audio-mini {
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 3.35rem;
+    height: 3.35rem;
+  }
+  .audio-mini svg {
+    width: 1.6rem;
+    height: 1.6rem;
   }
   input[type="range"] {
     height: 8px;
@@ -782,9 +786,19 @@ a:hover {
 
   .animal {
     width: 100%;
-    min-height: 3rem;
-    padding: 0 0.35rem 0 0.9rem;
+    min-height: 3.5rem;
+    padding: 0 0.25rem 0 0.9rem;
     justify-content: space-between;
+  }
+
+  .audio-mini {
+    width: 3.35rem;
+    height: 3.35rem;
+  }
+
+  .audio-mini svg {
+    width: 1.6rem;
+    height: 1.6rem;
   }
 
   .animal .name {
