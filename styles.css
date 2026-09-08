@@ -756,6 +756,10 @@ a:hover {
     background: url("media/grass-sky.jpg?v=7") center center / cover no-repeat;
   }
 
+  .zone--polar .sky-polar {
+    background: url("media/polar-sky.jpg?v=1") center center / cover no-repeat;
+  }
+
   .zone__glass {
     padding: 1rem 1rem 1.1rem;
     border-radius: 0;
