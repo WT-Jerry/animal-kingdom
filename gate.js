@@ -39,6 +39,15 @@
     const form = document.getElementById("ak-form");
     const input = document.getElementById("ak-pass");
     const err = document.getElementById("ak-err");
+    const film = document.querySelector(".ak-gate__film");
+    const gate = document.getElementById("ak-gate");
+    if (film && gate) {
+      const unmute = () => {
+        film.muted = false;
+        film.play().catch(() => {});
+      };
+      gate.addEventListener("pointerdown", unmute, { once: true });
+    }
     if (!form || !input) return;
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
