@@ -936,8 +936,9 @@ a:hover {
   inset: 0;
   z-index: 200;
   align-items: center;
-  justify-content: center;
-  padding: 1.25rem;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem calc(5.4rem + env(safe-area-inset-bottom, 0px));
   overflow: hidden;
   background: #07120a;
 }
@@ -961,9 +962,9 @@ a:hover {
   background:
     linear-gradient(
       180deg,
-      oklch(10% 0.04 155 / 0.28) 0%,
-      oklch(8% 0.03 155 / 0.52) 48%,
-      oklch(6% 0.03 155 / 0.72) 100%
+      oklch(10% 0.04 155 / 0.10) 0%,
+      oklch(8% 0.03 155 / 0.22) 48%,
+      oklch(6% 0.03 155 / 0.38) 100%
     );
 }
 
@@ -985,9 +986,9 @@ html.ak-locked body > :not(.ak-gate) {
   width: min(22rem, 100%);
   padding: 1.6rem 1.35rem 1.4rem;
   border-radius: 1.15rem;
-  background: color-mix(in oklch, var(--color-paper-2) 82%, transparent);
-  border: 1px solid color-mix(in oklch, var(--color-ink) 14%, transparent);
-  backdrop-filter: blur(18px);
+  background: color-mix(in oklch, var(--color-paper-2) 40%, transparent);
+  border: 1px solid color-mix(in oklch, var(--color-ink) 10%, transparent);
+  backdrop-filter: blur(10px);
 }
 
 .ak-card h1 {
@@ -1017,7 +1018,7 @@ html.ak-locked body > :not(.ak-gate) {
   padding: 0 0.85rem;
   border-radius: 0.7rem;
   border: 1px solid var(--color-rule);
-  background: var(--color-paper);
+  background: color-mix(in oklch, var(--color-paper) 72%, transparent);
   color: var(--color-ink);
   font: inherit;
 }
@@ -1039,4 +1040,46 @@ html.ak-locked body > :not(.ak-gate) {
   margin: 0.7rem 0 0;
   color: var(--color-danger);
   font-size: 0.88rem;
+}
+
+.ak-gate__spk {
+  position: absolute;
+  z-index: 3;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  display: grid;
+  place-items: center;
+  width: 3.35rem;
+  height: 3.35rem;
+  padding: 0;
+  border: 1px solid color-mix(in oklch, var(--color-ink) 12%, transparent);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--color-paper-2) 42%, transparent);
+  color: var(--color-accent);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.ak-gate__spk:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.ak-gate__spk-icon {
+  display: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0 auto;
+}
+
+.ak-gate__spk-icon--off {
+  display: block;
+}
+
+.ak-gate__spk.is-on .ak-gate__spk-icon--off {
+  display: none;
+}
+
+.ak-gate__spk.is-on .ak-gate__spk-icon--on {
+  display: block;
 }

@@ -40,14 +40,24 @@
     const input = document.getElementById("ak-pass");
     const err = document.getElementById("ak-err");
     const film = document.querySelector(".ak-gate__film");
-    const gate = document.getElementById("ak-gate");
-    if (film && gate) {
-      const unmute = () => {
-        film.muted = false;
-        film.play().catch(() => {});
+    const spk = document.getElementById("ak-spk");
+
+    if (film && spk) {
+      film.muted = true;
+      const setSound = (on) => {
+        film.muted = !on;
+        spk.classList.toggle("is-on", on);
+        spk.setAttribute("aria-pressed", on ? "true" : "false");
+        spk.setAttribute("aria-label", on ? "關閉聲音" : "開啟聲音");
+        if (on) film.play().catch(() => {});
       };
-      gate.addEventListener("pointerdown", unmute, { once: true });
+      spk.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setSound(film.muted);
+      });
     }
+
     if (!form || !input) return;
     form.addEventListener("submit", async (e) => {
       e.preventDefault();

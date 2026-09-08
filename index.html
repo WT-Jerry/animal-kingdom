@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="gate.js"></script>
+  <link rel="stylesheet" href="styles.css?v=2">
+  <script src="gate.js?v=2"></script>
 </head>
 <body>
   <div id="ak-gate" class="ak-gate">
-    <video class="ak-gate__film" autoplay muted loop playsinline preload="auto" poster="media/gate-poster.jpg?v=5" aria-hidden="true">
-      <source src="media/gate-tour.mp4?v=8" type="video/mp4">
+    <video class="ak-gate__film" autoplay muted loop playsinline preload="auto" poster="media/gate-poster.jpg?v=9" aria-hidden="true">
+      <source src="media/gate-tour.mp4?v=9" type="video/mp4">
     </video>
     <form id="ak-form" class="ak-card" autocomplete="on">
       <h1>動物王國</h1>
@@ -24,6 +24,16 @@
       <button type="submit">進入</button>
       <p id="ak-err" class="ak-err" hidden>密碼不正確，請再試一次。</p>
     </form>
+    <button type="button" class="ak-gate__spk" id="ak-spk" aria-pressed="false" aria-label="開啟聲音">
+      <svg class="ak-gate__spk-icon ak-gate__spk-icon--off" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4z"/>
+        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M16.2 9.2 L20.4 14.8 M20.4 9.2 L16.2 14.8"/>
+      </svg>
+      <svg class="ak-gate__spk-icon ak-gate__spk-icon--on" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/>
+        <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M18.2 6.4a7 7 0 0 1 0 11.2"/>
+      </svg>
+    </button>
   </div>
   <a class="skip" href="#atlas">跳到生態分區</a>
 
