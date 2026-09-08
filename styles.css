@@ -768,6 +768,10 @@ a:hover {
     background: url("media/ocean-sky.jpg?v=2") center center / cover no-repeat;
   }
 
+  .zone--pre .sky-pre {
+    background: url("media/pre-sky.jpg?v=1") center center / cover no-repeat;
+  }
+
   .zone__glass {
     padding: 1rem 1rem 1.1rem;
     border-radius: 0;
