@@ -23,7 +23,9 @@ python3 -m http.server 8765
 | `gate.js` | 通行檢查 |
 | `guides/` | 二十六個子頁 |
 | `guides/subpage-spec.md` | 子頁定版規範（後續頁照這份做） |
-| `guides/media/` | 前言封面與導覽語音 |
+| `design-summary.md` | 主頁／子頁設計總結（含分區橫幅定稿） |
+| `guides/media/` | 封面與導覽語音 |
+| `media/` | 主頁手機分區橫幅 |
 
 ## 子頁對照
 
