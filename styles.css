@@ -760,6 +760,10 @@ a:hover {
     background: url("media/polar-sky.jpg?v=1") center center / cover no-repeat;
   }
 
+  .zone--desert .sky-desert {
+    background: url("media/desert-sky.jpg?v=4") center center / cover no-repeat;
+  }
+
   .zone__glass {
     padding: 1rem 1rem 1.1rem;
     border-radius: 0;
