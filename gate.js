@@ -36,11 +36,36 @@
   document.documentElement.classList.add("ak-locked");
 
   window.addEventListener("DOMContentLoaded", () => {
+    const gate = document.getElementById("ak-gate");
     const form = document.getElementById("ak-form");
     const input = document.getElementById("ak-pass");
     const err = document.getElementById("ak-err");
     const film = document.querySelector(".ak-gate__film");
     const spk = document.getElementById("ak-spk");
+    const enter = document.getElementById("ak-enter");
+
+    function setPanel(open) {
+      if (!gate) return;
+      gate.classList.toggle("is-open", open);
+      if (open && input) input.focus();
+      else if (err) err.hidden = true;
+    }
+
+    if (enter) {
+      enter.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setPanel(true);
+      });
+    }
+
+    if (gate) {
+      gate.addEventListener("pointerdown", (e) => {
+        if (!gate.classList.contains("is-open")) return;
+        if (e.target.closest(".ak-card") || e.target.closest(".ak-gate__spk")) return;
+        setPanel(false);
+      });
+    }
 
     if (film && spk) {
       film.muted = true;
@@ -71,9 +96,7 @@
       }
       document.documentElement.classList.remove("ak-locked");
       document.documentElement.classList.add("ak-open");
-      const gate = document.getElementById("ak-gate");
       if (gate) gate.remove();
     });
-    input.focus();
   });
 })();
